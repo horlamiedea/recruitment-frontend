@@ -177,10 +177,10 @@ STATIC_URL = "static/"
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+import os
 
-
-CELERY_BROKER_URL = 'redis://localhost:6379/0'
-CELERY_RESULT_BACKEND = 'redis://localhost:6379/0'
+CELERY_BROKER_URL = os.environ.get('REDIS_URL', '')
+CELERY_RESULT_BACKEND = os.environ.get('REDIS_URL', '')
 CELERY_ACCEPT_CONTENT = ['json']
 CELERY_TASK_SERIALIZER = 'json'
 CELERY_RESULT_SERIALIZER = 'json'
@@ -200,8 +200,8 @@ else:
 
 
 CORS_ALLOWED_ORIGINS = [
-    "http://localhost:5173",  
-    "http://127.0.0.1:5173",
+    '*'
+
 ]
 
 CORS_ALLOW_CREDENTIALS = True
