@@ -198,12 +198,16 @@ else:
     EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 
-
-CORS_ALLOWED_ORIGINS = [
-    '*'
-
-]
+CORS_ALLOW_CREDENTIALS = True
 
 ALLOWED_HOSTS = ['*']
+
+CORS_ALLOWED_ORIGINS = [
+    "https://recruitment-frontend-fejh9ob9s-horlamiedeas-projects.vercel.app",
+    "http://localhost:3000",  # Assuming you use port 3000 for local React/Vue/etc. dev
+    "http://127.0.0.1:3000",
+]
+
+
 
 # CORS_ALLOW_CREDENTIALS = True
