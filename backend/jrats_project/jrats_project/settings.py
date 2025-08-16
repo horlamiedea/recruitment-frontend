@@ -198,16 +198,20 @@ else:
     EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 
-CORS_ALLOW_CREDENTIALS = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = [
+    'generative-ai-speechtotext.onrender.com',
+    '127.0.0.1',
+    'localhost',
+]
 
 CORS_ALLOWED_ORIGINS = [
-    "https://recruitment-frontend-fejh9ob9s-horlamiedeas-projects.vercel.app",
-    "http://localhost:3000",  # Assuming you use port 3000 for local React/Vue/etc. dev
-    "http://127.0.0.1:3000",
+    # For your local development (keep this!)
+    "http://localhost:5173",
+
+    # For your DEPLOYED Vercel frontend (add this new line)
+    "https://recruitment-frontend-eight.vercel.app",
 ]
 
 
-
-# CORS_ALLOW_CREDENTIALS = True
+CORS_ALLOW_CREDENTIALS = True
